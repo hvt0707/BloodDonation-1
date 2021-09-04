@@ -3,26 +3,27 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Patient Form</title>
+        <script src="validation.js"></script>
 	</head>
     <body>
         <form>
         <label>First Name:</label>
         <input type="text" placeholder="*"></input>
-        <br>
+        <br><br>
         <label>Last Name:</label>
         <input type="text" placeholder="*"></input>
-        <br>
+        <br><br>
         <label>Age:</label>
         <input type="number" placeholder="*"></input>
-        <br>
+        <br><br>
         <label>Gender:</label>
         <input type="radio" name="gender">Male</input>
         <input type="radio" name="gender">Female</input>
         <input type="radio" name="gender">Other</input>
-        <br>
+        <br><br>
         <label>Date of Birth:</label>
         <input type="date"></input>
-        <br>
+        <br><br>
         <label>Blood Group:</label>
         <select name="blood_group" >
             <option value="A+">A+</option>
@@ -34,15 +35,15 @@
             <option value="O+">O+</option>
             <option value="O-">O-</option>
         </select>
-        <br>
+        <br><br>
         <label>Address: </label>
         <textarea rows="1" cols="30"></textarea>
-        <br>
+        <br><br>
         <label>City: </label>
         <select name="city">
             <option></option>
         </select>
-        <br>
+        <br><br>
         <label>State/UT: </label>
         <select name="state" >
             <option value="AP">Andhra Pradesh</option>
@@ -82,13 +83,20 @@
             <option value="Lakshadweep">Lakshadweep</option>
             <option value="Puducherry">Puducherry</option>
         </select>
-        <br>
-        <label>Contact Number: </label>
-        <input type="tel"></input>
-        <br>
+        <br><br>
+        <label >Contact Number: </label>
+        <input id="phonenumber" type="tel"></input>
+        <br><br>
         <label>Email ID: </label>
-        <input type="email"></input>
-        
+        <input type="email" id="email"></input>
+        <br><br>
+        <label>Password: </label>
+        <input type="password" id="pass" placeholder="*">
+        <br><br>
+        <label>Confirm password: </label>
+        <input type="password" id="conf_pass" placeholder="*"><br><br>
+
+        <button type="button" value="submit" onclick="phonevalidator();passvalidator();emailvalidator()">Submit</button>
         </form>        
     </body>
 </html>
