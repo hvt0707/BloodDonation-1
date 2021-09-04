@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>B214</title>
+        <script src="external.js"></script>
 	</head>
     <body>
         <form>
@@ -13,7 +14,7 @@
         <input type="text" placeholder="*"></input>
         <br>
         <label>Age:</label>
-        <input type="number" placeholder="*"></input>
+        <input type="tel" id="age"></input>
         <br>
         <label>Gender:</label>
         <input type="radio" name="gender">Male</input>
@@ -21,7 +22,7 @@
         <input type="radio" name="gender">Other</input>
         <br>
         <label>Date of Birth:</label>
-        <input type="date"></input>
+        <input type="date" id="DOB" onchange="calculateAge()"></input>
         <br>
         <label>Blood Group:</label>
         <select name="blood_group" >
@@ -107,8 +108,8 @@
         <input type="tel"></input>
         <br>
         <label>Email ID: </label>
-        <input type="email"></input>
-        
+        <input type="email"></input><br>
+        <button type="submit" onClick="validatingAge()">Submit</button>
         </form>        
     </body>
 </html>
