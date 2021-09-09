@@ -1,0 +1,33 @@
+Database Design:
+
+*********1NF**********
+
+DONOR(EMAIL (pk) , FN, LN ,AGE, GENDER, DOB, BLDGRP, DONATED_BEFORE?, DONATION_LAST_TYM, ANYPROB, PROBLEM_DETAIL, ADDRESS, CITY, STATE, CONTACT, Password)
+
+PATIENT(EMAIL(pk),FN, LN ,AGE, GENDER, DOB, BLDGRP,ADDRESS, CITY, STATE, CONTACT, Password)
+
+*************Functional Dependency****************
+
+In DONOR:- 
+
+EMAIL -> FN,LN,AGE,GENDER,DOB,BLDGRP,DONATED_BEFORE?,DONATION_LAST_TYM,ANYPROB,PROBLEM_DETAIL,ADDRESS,CITY,STATE,CONTACT,Password
+City -> STATE
+
+In PATIENT:-
+
+EMAIL -> FN,LN,AGE,GENDER,DOB,BLDGRP,ADDRESS,CITY,STATE,CONTACT,Password
+City -> STATE
+
+C.K -> Email (single,hence relation in 2NF)
+
+*********3NF**********
+
+Donor_tables:- 
+Donor_personal_detail(EMAIL(pk) ,FN,LN,AGE,GENDER,DOB,BLDGRP,DONATED_BEFORE?, DONATION_LAST_TYM,ANYPROB,PROBLEM_DETAIL, ADDRESS,CITY (fk) ,CONTACT,Password)
+Donor_locality(City (pk), STATE)
+
+Patient_Tables:-
+Patien_personal_detail(EMAIL,FN,LN,AGE,GENDER,DOB,BLDGRP,ADDRESS,CITY (fk),CONTACT,Password)
+patient_locality(City (pk), STATE)
+
+The above relation is in BCNF as well!
