@@ -1,0 +1,38 @@
+#img1{
+    width:100%;
+    height:45%;
+}
+*{
+    box-sizing:border-box;
+}
+body{
+    color:maroon;
+    margin:5px;
+    padding:10px;
+    text-align:center;
+}
+header{
+    border-radius:5px;
+    background:lightsalmon;
+    padding:14px;
+}
+aside.left{
+    margin-top:10px;
+    height:300px;
+    width:30%;
+    float:left;
+    background: lightsalmon;
+    border-radius:5px;
+    font-family:cursive;
+}
+aside.right{
+    margin-top:10px;
+    height:300px;
+    margin-left:16px;
+    margin-right:10px;
+    width:68%;
+    float:left;
+    background:lightsalmon;
+    border-radius:5px;
+    font-family:cursive;
+}
