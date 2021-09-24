@@ -4,6 +4,7 @@
 		<meta charset="utf-8">
 		<title>Patient Form</title>
         <script src="validation.js"></script>
+        <link rel="stylesheet" href="donor_form.css">
 	</head>
     <body>
         <form>
@@ -14,7 +15,7 @@
         <input type="text" placeholder="*"></input>
         <br><br>
         <label>Age:</label>
-        <input type="number" placeholder="*"></input>
+        <input type="number" id="age" placeholder="*"></input>
         <br><br>
         <label>Gender:</label>
         <input type="radio" name="gender">Male</input>
@@ -22,7 +23,7 @@
         <input type="radio" name="gender">Other</input>
         <br><br>
         <label>Date of Birth:</label>
-        <input type="date"></input>
+        <input type="date" id="DOB" onchange="calculateAge()"></input>
         <br><br>
         <label>Blood Group:</label>
         <select name="blood_group" >
@@ -96,7 +97,7 @@
         <label>Confirm password: </label>
         <input type="password" id="conf_pass" placeholder="*"><br><br>
 
-        <button type="button" value="submit" onclick="phonevalidator();passvalidator();emailvalidator()">Submit</button>
+        <button type="button" id="sub" value="submit" onclick="phonevalidator();passvalidator();emailvalidator();validatingAge()">Submit</button>
         </form>        
     </body>
 </html>
