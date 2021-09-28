@@ -23,3 +23,26 @@ form{
     color:maroon;
     font-size:larger;
 }
+ul{
+    list-style-type:none;
+    margin:0;
+    padding:0;
+    overflow:hidden;
+    background-color:rgba(250, 94, 94,0.615);
+}
+li{
+    float:left;
+    font-family:cursive;
+    font-size:large;
+    font-weight:bold;
+    
+}
+li a{
+    display:block;
+    padding:14px 16px;
+    color:maroon;
+    text-decoration:none;
+}
+li a:hover{
+    background-color:rgba(250, 94, 94);
+}
