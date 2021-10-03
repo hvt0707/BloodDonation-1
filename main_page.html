@@ -9,20 +9,26 @@
         <!--<header>
             <img id="img1" src="blood_donation.jpg">
         </header>-->
+        <ul class="top">
+            <li class="l1"><a href="#"><img src="phonewhite.jpeg" id="logo0">&nbsp;7284056951</a></li>
+            <li class="l1"><a href="#"><img src="emailwhite.png" id="logo1">&nbsp;queries@teamcadmus.com</a></li>
+        </ul>
         <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Login</a></li>
+            <li class="l2"><a href="home.html">Home</a></li>
+            <li class="l2"><a href="login.html">Login</a></li>
+            <li class="l2"><a href="main_page.html">Search donor</a></li>
         </ul>
         <main>
-            <aside class="left">
+            <!--<aside class="left">
                 Welcome user<br>
                 <a href="#">Search Donor</a><br>
                 <a href="#">Donor registration</a>
-            </aside>
+            </aside>-->
             <aside class="right">
-                <h2>Donor Search</h2><br>
-                City: <input type="text" size="15" maxlength="25">
-                Blood Group: <select name="blood_group" >
+                <h2>Search a Donor in your area</h2><br>
+                <input type="text" size="15" maxlength="25" placeholder="city name" id="city">&emsp;&emsp;
+                <select name="blood_group">
+                    <option value="" disabled selected>Choose Blood Group</option>
                     <option value="A+">A+</option>
                     <option value="A-">A-</option>
                     <option value="B+">B+</option>
@@ -31,7 +37,8 @@
                     <option value="AB-">AB-</option>
                     <option value="O+">O+</option>
                     <option value="O-">O-</option>
-                </select>
+                </select>&emsp;&emsp;
+                <button id="search" value="submit">Search</button>
             </aside>
         </main>
     </body>
