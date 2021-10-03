@@ -30,9 +30,8 @@ aside.left{
 aside.right{
     margin-top:10px;
     height:100%;
-    margin-left:16px;
-    margin-right:10px;
-    width:68%;
+    
+    width:100%;
     float:left;
     background-color: rgba(250, 94, 94,0.615);
     border-radius:5px;
@@ -89,4 +88,19 @@ li.l1 a{
     width:17px;
     height:17px;
     
+}
+#city{
+    font-size:large;
+    padding:7px 15px;
+    
+}
+select{
+    font-size:large;
+    padding:7px 15px;
+}
+#search{
+    font-size:large;
+    background-color:brown;
+    padding:7px 15px;
+    color:white;
 }
