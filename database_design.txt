@@ -27,7 +27,10 @@ Donor_personal_detail(EMAIL(pk) ,FN,LN,AGE,GENDER,DOB,BLDGRP,DONATED_BEFORE?, DO
 Donor_locality(City (pk), STATE)
 
 Patient_Tables:-
-Patien_personal_detail(EMAIL,FN,LN,AGE,GENDER,DOB,BLDGRP,ADDRESS,CITY (fk),CONTACT,Password)
+Patien_personal_detail(EMAIL(PK),FN,LN,AGE,GENDER,DOB,BLDGRP,ADDRESS,CITY (fk),CONTACT,Password)
 patient_locality(City (pk), STATE)
+
+Login table:
+login_details(EMAIL, Password)
 
 The above relation is in BCNF as well!
