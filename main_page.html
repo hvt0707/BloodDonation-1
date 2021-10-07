@@ -26,19 +26,21 @@
             </aside>-->
             <aside class="right">
                 <h2>Search a Donor in your area</h2><br>
-                <input type="text" size="15" maxlength="25" placeholder="city name" id="city">&emsp;&emsp;
-                <select name="blood_group">
-                    <option value="" disabled selected>Choose Blood Group</option>
-                    <option value="A+">A+</option>
-                    <option value="A-">A-</option>
-                    <option value="B+">B+</option>
-                    <option value="B-">B-</option>
-                    <option value="AB+">AB+</option>
-                    <option value="AB-">AB-</option>
-                    <option value="O+">O+</option>
-                    <option value="O-">O-</option>
-                </select>&emsp;&emsp;
-                <button id="search" value="submit">Search</button>
+                <form action="searchdonor.php" method="POST">
+                    <input type="text" size="15" maxlength="25" placeholder="city name" id="city" name="city">&emsp;&emsp;
+                    <select name="blood_group">
+                        <option value="" disabled selected>Choose Blood Group</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B-">B-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
+                    </select>&emsp;&emsp;
+                    <button id="search" value="submit" name="submit">Search</button>
+                </form>
             </aside>
         </main>
     </body>
