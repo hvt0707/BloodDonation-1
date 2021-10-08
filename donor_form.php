@@ -15,7 +15,7 @@ session_start();
  $_SESSION['desc']=$_POST["yes_problem"];
  $_SESSION['state']=$_POST["state"];
  $_SESSION['contact']=$_POST["contact"];
- $_SESSION['email']=$_POST["email"];
+ //$_SESSION['email']=$_POST["email"];
  $_SESSION['pass1']=md5($_POST["pass"]); //sai786gaja
  $_SESSION['pass2']=md5($_POST["conf_pass"]);*/
  
@@ -62,8 +62,8 @@ session_start();
             <br>
             <div>
                 <label>Gender:</label>
-                <input type="radio" value="female" name="gender">Male</input>
-                <input type="radio" value="male" name="gender">Female</input>
+                <input type="radio" value="Male" name="gender">Male</input>
+                <input type="radio" value="Female" name="gender">Female</input>
                 <input type="radio" value="other" name="gender">Other</input>
             </div>
             <br>
