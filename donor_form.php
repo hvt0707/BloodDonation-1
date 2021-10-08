@@ -1,4 +1,29 @@
+<?php
+session_start();
+ /*$_SESSION['fname']=$_POST["fname"];
+ $_SESSION['email']=$_POST["email"];
+ $_SESSION['lname']=$_POST['lname'];
+ $_SESSION['age']=$_POST["age"];
+ $_SESSION['gender']=$_POST["gender"];
+ $_SESSION['address']=$_POST["address"];
+ $_SESSION['dob']=$_POST["dob"];
+ $_SESSION['city']=$_POST["city"];
+ $_SESSION['bloodgroup']=$_POST["blood_group"];
+ $_SESSION['predonated']=$_POST["predonated"];
+ $_SESSION['donate_value']=$_POST["donate_value"];
+ $_SESSION['problem']=$_POST["problem"];
+ $_SESSION['desc']=$_POST["yes_problem"];
+ $_SESSION['state']=$_POST["state"];
+ $_SESSION['contact']=$_POST["contact"];
+ $_SESSION['email']=$_POST["email"];
+ $_SESSION['pass1']=md5($_POST["pass"]); //sai786gaja
+ $_SESSION['pass2']=md5($_POST["conf_pass"]);*/
+ 
+ //$email=$_POST["email"];
+ $otp=rand(11111,99999);
+ $_SESSION['otp']=$otp;
 
+?>
 <!DOCTYPE HTML>
 <html lang="en-us">
 	<head>
@@ -17,7 +42,7 @@
             <li class="l2"><a href="login.html">Login</a></li>
             <li class="l2"><a href="main_page.html">Search donor</a></li>
         </ul><br>
-        <form method="POST" action=""> 
+        <form method="POST" action="verify.php"> 
             <div>
                 <label>First Name:</label>
                 <input type="text" name="fname" placeholder="*" required></input>
@@ -150,7 +175,7 @@
             <br>
             <div>
                 <label>Email ID: </label>
-                <input name="email" type="email" required></input>
+                <input name="email" id="email" type="email" required></input>
             </div>
             <br>
             <label>Password: </label>
@@ -158,10 +183,24 @@
         <br><br>
         <label>Confirm password: </label>
         <input type="password" name="conf_pass" id="conf_pass" placeholder="*" required><br><br>
-            <button type="submit" name="submit" id="sub" onsubmit="return false"> Submit</button>
+        <!--<label>Enter OTP: </label>
+        <input type="text" name="otp_text" placeholder="*enter otp"><br><br>
+        <input type="submit" name="submit" id="sub">-->
+        <input type="submit" name="otp_send" value="Send OTP">
+            
         </form> 
+    
+            
+
         <?php
-        if(isset($_POST['submit'])){
+       
+        //$db=new connection_project();
+        //$conn=$db->connect();
+        
+        //$res=mysqli_query($conn,"select * from user where email='$email'");
+        
+        
+        /*if(isset($_POST['submit'])){
             include("connection_project.php");
         $db=new connection_project();
         $conn=$db->connect();
@@ -189,7 +228,7 @@
         $state=$_POST["state"];
         $contact=$_POST["contact"];
         $email=$_POST["email"];
-        $pass=md5($_POST["pass"]);
+        $pass=md5($_POST["pass"]); //sai786gaja
         $pass2=md5($_POST["conf_pass"]);
         
         if(!validate_mobile($contact)  )
@@ -215,7 +254,7 @@
             echo "error";
         }
     }
-    }
+    }*/
     
         ?>  
 
