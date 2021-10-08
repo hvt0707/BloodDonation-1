@@ -4,6 +4,7 @@
 		<meta charset="utf-8">
 		<title>Patient Form</title>
         <script src="validation.js"></script>
+        <script src = "cities.js"></script> 
         <link rel="stylesheet" href="donor_form.css">
 	</head>
     <body>
@@ -16,26 +17,23 @@
             <li class="l2"><a href="login.html">Login</a></li>
             <li class="l2"><a href="main_page.html">Search donor</a></li>
         </ul><br>
-        <form>
+        <form action = "patient_form.php" method = "post">
         <label>First Name:</label>
-        <input type="text" placeholder="*"></input>
+        <input type="text" placeholder="*" name = "firstName"></input>
         <br><br>
         <label>Last Name:</label>
-        <input type="text" placeholder="*"></input>
-        <br><br>
-        <label>Age:</label>
-        <input type="number" id="age" placeholder="*"></input>
+        <input type="text" placeholder="*" name = "lastName"></input>
         <br><br>
         <label>Gender:</label>
-        <input type="radio" name="gender">Male</input>
-        <input type="radio" name="gender">Female</input>
-        <input type="radio" name="gender">Other</input>
+        <input type="radio" name="gender" value = "male" id = "male">Male</input>
+        <input type="radio" name="gender" value = "female" id = "female">Female</input>
+        <input type="radio" name="gender" value = "other" id = "other">Other</input>
         <br><br>
         <label>Date of Birth:</label>
-        <input type="date" id="DOB" onchange="calculateAge()"></input>
+        <input type="date" id="DOB" onchange="calculateAge()" name = "dob"></input>
         <br><br>
         <label>Blood Group:</label>
-        <select name="blood_group" >
+        <select name="blood_group" name = "bloodGroup">
             <option value="A+">A+</option>
             <option value="A-">A-</option>
             <option value="B+">B+</option>
@@ -47,66 +45,28 @@
         </select>
         <br><br>
         <label>Address: </label>
-        <textarea rows="1" cols="30"></textarea>
+        <textarea rows="1" cols="30" name = "address"></textarea>
         <br><br>
-        <label>City: </label>
-        <select name="city">
-            <option></option>
-        </select>
+        <label>State: </label>
+        <select onchange="print_city('state', this.selectedIndex);" id="sts" name ="state" class="form-control" required></select>
         <br><br>
-        <label>State/UT: </label>
-        <select name="state" >
-            <option value="AP">Andhra Pradesh</option>
-            <option value="Arunachal">Arunachal Pradesh</option>
-            <option value="Assam">Assam</option>
-            <option value="Bihar">Bihar</option>
-            <option value="Chhattisgarh">Chhattisgarh</option>
-            <option value="Goa">Goa</option>
-            <option value="Gujarat">Gujarat</option>
-            <option value="Haryana">Haryana</option>
-            <option value="Himachal">Himachal Pradesh</option>
-            <option value="JK">Jammu and Kashmir</option>
-            <option value="Jharkhand">Jharkhand</option>
-            <option value="Karnataka">Karnataka</option>
-            <option value="Kerala">Kerala</option>
-            <option value="Madhya Pradesh">Madhya Pradesh</option>
-            <option value="Maharashtra">Maharashtra</option>
-            <option value="Manipur">Manipur</option>
-            <option value="Meghalaya">Meghalaya</option>
-            <option value="Mizoram">Mizoram</option>
-            <option value="Nagaland">Nagaland</option>
-            <option value="Odisha">Odisha</option>
-            <option value="Punjab">Punjab</option>
-            <option value="Rajasthan">Rajasthan</option>
-            <option value="Sikkim">Sikkim</option>
-            <option value="TN">Tamil Nadu</option>
-            <option value="Telangana">Telangana</option>
-            <option value="Tripura">Tripura</option>
-            <option value="Uttarakhand">Uttarakhand</option>
-            <option value="UP">Uttar Pradesh</option>
-            <option value="WB">West Bengal</option>
-            <option value="Nicobar">Andaman and Nicobar Islands</option>
-            <option value="Chandigarh">Chandigarh</option>
-            <option value="DadraandNagar">Dadra and Nagar Haveli</option>
-            <option value="Daman">Daman and Diu</option>
-            <option value="Delhi">Delhi</option>
-            <option value="Lakshadweep">Lakshadweep</option>
-            <option value="Puducherry">Puducherry</option>
-        </select>
+        <label for="">City: </label>
+        <select id ="state" class="form-control" name = "city" required></select>
+        <script language="javascript">print_state("sts");</script>
         <br><br>
         <label >Contact Number: </label>
-        <input id="phonenumber" type="tel"></input>
+        <input id="phonenumber" type="tel" name = "phone"></input>
         <br><br>
         <label>Email ID: </label>
-        <input type="email" id="email"></input>
+        <input type="email" id="email" name="email"></input>
         <br><br>
         <label>Password: </label>
-        <input type="password" id="pass" placeholder="*">
+        <input type="password" id="pass" placeholder="*" name = "pass">
         <br><br>
         <label>Confirm password: </label>
-        <input type="password" id="conf_pass" placeholder="*"><br><br>
+        <input type="password" id="conf_pass" placeholder="*" name = "cpass"><br><br>
 
-        <button type="button" id="sub" value="submit" onclick="phonevalidator();passvalidator();emailvalidator();validatingAge()">Submit</button>
-        </form>        
+        <button type="submit" id="sub" value="submit" onclick="phonevalidator();passvalidator();emailvalidator();validatingAge()">Submit</button>
+        </form>       
     </body>
 </html>
