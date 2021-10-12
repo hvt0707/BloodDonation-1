@@ -1,7 +1,7 @@
 
 <html>
     <head>
-        <link rel="stylesheet" href="test.css">
+        <link rel="stylesheet" href="test.css">   
     </head>
     <body>
         <ul>
@@ -13,14 +13,24 @@
         
         
             <p style="color:black;">Blood eligibilty quiz</p>
-            <img class="images" src="cake.jpg">
-            <h2 class="heading1">Are you 18-75 years old?</h2>
-            <form action="tattoo.html" method="POST">
-                <input class="buttons" type="submit" name="age_yes" value="Yes">
+            <div id="images">
+                <img class="images" src="cake.jpg">
+            </div>
+            <div id="content">
+                <h2 class="heading1"> Are you 18-75 years old?</h2>
+            </div>
+        
+            <!--<form action="tattoo.html" method="POST">
+                <input class="buttons" type="submit" id="age_yes" name="age_yes" value="Yes">
             </form>
             <form action="alert.html" method="POST">
-                <input class="buttons" type="submit" name="age_no" value="No">
-            </form>
+                <input class="buttons" type="submit" id="age_no" name="age_no" value="No">
+            </form>-->
+            <div class="btn">
+                <button class="buttons" id="age_yes">Yes</button>
+                <button class="buttons" id="age_no">No</button>
+            </div>
+        <script src="change.js"></script> 
         
     </body>
 </html>
