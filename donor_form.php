@@ -1,25 +1,5 @@
 <?php
 session_start();
- /*$_SESSION['fname']=$_POST["fname"];
- $_SESSION['email']=$_POST["email"];
- $_SESSION['lname']=$_POST['lname'];
- $_SESSION['age']=$_POST["age"];
- $_SESSION['gender']=$_POST["gender"];
- $_SESSION['address']=$_POST["address"];
- $_SESSION['dob']=$_POST["dob"];
- $_SESSION['city']=$_POST["city"];
- $_SESSION['bloodgroup']=$_POST["blood_group"];
- $_SESSION['predonated']=$_POST["predonated"];
- $_SESSION['donate_value']=$_POST["donate_value"];
- $_SESSION['problem']=$_POST["problem"];
- $_SESSION['desc']=$_POST["yes_problem"];
- $_SESSION['state']=$_POST["state"];
- $_SESSION['contact']=$_POST["contact"];
- //$_SESSION['email']=$_POST["email"];
- $_SESSION['pass1']=md5($_POST["pass"]); //sai786gaja
- $_SESSION['pass2']=md5($_POST["conf_pass"]);*/
- 
- //$email=$_POST["email"];
  $otp=rand(11111,99999);
  $_SESSION['otp']=$otp;
 
@@ -30,18 +10,19 @@ session_start();
 		<meta charset="utf-8">
 		<title>Donor form</title>
         <script src="validation.js"></script>
+        <script src="cities.js"></script>
         <link rel="stylesheet" href="donor_form.css">
 	</head>
     <body>
         <ul class="top">
             <li class="l1"><a href="#"><img src="phonewhite.jpeg" id="logo0">&nbsp;7284056951</a></li>
             <li class="l1"><a href="#"><img src="emailwhite.png" id="logo1">&nbsp;queries@teamcadmus.com</a></li>
-        </ul>
+        </ul><br>
         <ul>
             <li class="l2"><a href="home.html">Home</a></li>
             <li class="l2"><a href="login.html">Login</a></li>
             <li class="l2"><a href="main_page.html">Search donor</a></li>
-        </ul><br>
+        </ul><br><br><br>
         <form method="POST" action="verify.php"> 
             <div>
                 <label>First Name:</label>
@@ -75,14 +56,22 @@ session_start();
             <div>
                 <label>Blood Group:</label>
                 <select name="blood_group" >
-                    <option value="A+">A+</option>
-                    <option value="A-">A-</option>
-                    <option value="B+">B+</option>
-                    <option value="B-">B-</option>
-                    <option value="AB+">AB+</option>
-                    <option value="AB-">AB-</option>
-                    <option value="O+">O+</option>
-                    <option value="O-">O-</option>
+                    <option value="A +ve">A +ve</option>
+                    <option value="A -ve">A -ve</option>
+                    <option value="B +ve">B +ve</option>
+                    <option value="B -ve">B -ve</option>
+                    <option value="AB +ve">AB +ve</option>
+                    <option value="AB -ve">AB -ve</option>
+                    <option value="A1 +ve">A1 +ve</option>
+                    <option value="A1 -ve">A1 -ve</option>
+                    <option value="A2 +ve">A2 +ve</option>
+                    <option value="A2 -ve">A2 -ve</option>
+                    <option value="A1B +ve">A1B +ve</option>
+                    <option value="A1B -ve">A1B -ve</option>
+                    <option value="A2B +ve">A2B +ve</option>
+                    <option value="A2B -ve">A2B -ve</option>
+                    <option value="O +ve">O +ve</option>
+                    <option value="O -ve">O -ve</option>
                 </select>
             </div>
             <br>
@@ -121,56 +110,16 @@ session_start();
                 <textarea name="address" rows="2" cols="30" required></textarea>
             </div>
             <br>
-            <div>
-                <label>City: </label>
-                <input type="text" name="city" placeholder="*" required></input>
-            </div>
-            <br>
-            <div>
-                <label>State/UT: </label>
-                <select name="state" >
-                    <option value="AP">Andhra Pradesh</option>
-                    <option value="Arunachal">Arunachal Pradesh</option>
-                    <option value="Assam">Assam</option>
-                    <option value="Bihar">Bihar</option>
-                    <option value="Chhattisgarh">Chhattisgarh</option>
-                    <option value="Goa">Goa</option>
-                    <option value="Gujarat">Gujarat</option>
-                    <option value="Haryana">Haryana</option>
-                    <option value="Himachal">Himachal Pradesh</option>
-                    <option value="JK">Jammu and Kashmir</option>
-                    <option value="Jharkhand">Jharkhand</option>
-                    <option value="Karnataka">Karnataka</option>
-                    <option value="Kerala">Kerala</option>
-                    <option value="Madhya Pradesh">Madhya Pradesh</option>
-                    <option value="Maharashtra">Maharashtra</option>
-                    <option value="Manipur">Manipur</option>
-                    <option value="Meghalaya">Meghalaya</option>
-                    <option value="Mizoram">Mizoram</option>
-                    <option value="Nagaland">Nagaland</option>
-                    <option value="Odisha">Odisha</option>
-                    <option value="Punjab">Punjab</option>
-                    <option value="Rajasthan">Rajasthan</option>
-                    <option value="Sikkim">Sikkim</option>
-                    <option value="TN">Tamil Nadu</option>
-                    <option value="Telangana">Telangana</option>
-                    <option value="Tripura">Tripura</option>
-                    <option value="Uttarakhand">Uttarakhand</option>
-                    <option value="UP">Uttar Pradesh</option>
-                    <option value="WB">West Bengal</option>
-                    <option value="Nicobar">Andaman and Nicobar Islands</option>
-                    <option value="Chandigarh">Chandigarh</option>
-                    <option value="DadraandNagar">Dadra and Nagar Haveli</option>
-                    <option value="Daman">Daman and Diu</option>
-                    <option value="Delhi">Delhi</option>
-                    <option value="Lakshadweep">Lakshadweep</option>
-                    <option value="Puducherry">Puducherry</option>
-                </select>
-            </div>
-            <br>
+            <label>State: </label>
+        <select onchange="print_city('state', this.selectedIndex);" id="sts" name ="state" class="form-control" required></select>
+        <br><br>
+        <label for="">City: </label>
+        <select id ="state" class="form-control" name = "city" required></select>
+        <script language="javascript">print_state("sts");</script>
+        <br><br>
             <div>
                 <label>Contact Number: </label>
-                <input name="contact" type="tel" required></input>
+                <input name="contact" id="phonenumber" type="tel" required></input>
             </div>
             <br>
             <div>
@@ -186,77 +135,51 @@ session_start();
         <!--<label>Enter OTP: </label>
         <input type="text" name="otp_text" placeholder="*enter otp"><br><br>
         <input type="submit" name="submit" id="sub">-->
-        <input type="submit" name="otp_send" value="Send OTP">
+        <input type="submit" id="sub" name="otp_send" value="Send OTP" onclick="JavaScript: return validator()">
+        </form> <br><br>
+        <div class="footer">
+            <div class="footer-content">
+            <div class="footer-section about">
+                <h1 class="logo-text">
+                    <span>Blood</span>Donation
+                </h1>
+                <p>
+                    BloodDonation is a website aiming to connect people who are in need of a help
+                    by making the best use of technology!!
+                </p>
+                <img src="phonewhite.jpeg" id="logo0">&nbsp;7284056951
+                <img src="emailwhite.png" id="logo1">&nbsp;queries@teamcadmus.com
+            </div>
+            <div class="footer-section address">
+                <h1>Address</h1>
+                        Mukesh Patel Technolgy Park, <br>
+                        Village: Babulde, Bank of Tapi River, <br>
+                        National Highway No: 3, Shirpur. <br>
+                        Pin Code: 425405. <br>
+                        Dist. Dhule, Maharashtra, India.
+
+            </div>
+            <div class="footer-section">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3717.6621167249236!2d74.8422806143924!3d21.284838284363822!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bdf2dfec2f03403%3A0xf2ba0e2634eda3a1!2sMukesh%20Patel%20School%20of%20Technology%20Management%20%26%20Engineering%2C%20Shirpur!5e0!3m2!1sen!2sin!4v1634288163194!5m2!1sen!2sin" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
             
-        </form> 
-    
+            </div>
+            <div class="footer-bottom">
+                &copy; teamcadmus.com | Designed by Team Cadmus
+            </div>
+        </div>
+        <!--<footer>
             
+            <u style="color:lightpink">Contact number</u>: (+91) 7284056951<br>
+            <u style="color:lightpink">Email id</u>: queries@teamcadmus.com<br>
+            <u style="color:lightpink">Address</u>:   Mukesh Patel Technolgy Park, <br>
+                        Village: Babulde, Bank of Tapi River, <br>
+                        National Highway No: 3, Shirpur. <br>
+                        Pin Code: 425405. <br>
+                        Dist. Dhule, Maharashtra, India.
 
-        <?php
-       
-        //$db=new connection_project();
-        //$conn=$db->connect();
-        
-        //$res=mysqli_query($conn,"select * from user where email='$email'");
-        
-        
-        /*if(isset($_POST['submit'])){
-            include("connection_project.php");
-        $db=new connection_project();
-        $conn=$db->connect();
-        function validate_mobile($mobile)
-        {
-            return preg_match('/^[6-9][0-9]{9}$/', $mobile);
-        }
-        function validate_email($email){
-            return preg_match('/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/',$email);
-        }
             
-
-        $name=$_POST["fname"];
-        $lname=$_POST["lname"];
-        $age=$_POST["age"];
-        $gender=$_POST["gender"];
-        $address=$_POST["address"];
-        $dob=$_POST["dob"];
-        $city=$_POST["city"];
-        $bloodgroup=$_POST["blood_group"];
-        $donates=$_POST["predonated"];
-        $donatedvalue=$_POST["donate_value"];
-        $problem=$_POST["problem"];
-        $problemdesc=$_POST["yes_problem"];
-        $state=$_POST["state"];
-        $contact=$_POST["contact"];
-        $email=$_POST["email"];
-        $pass=md5($_POST["pass"]); //sai786gaja
-        $pass2=md5($_POST["conf_pass"]);
+        </footer>-->
         
-        if(!validate_mobile($contact)  )
-        {
-            echo '<script>alert("Please enter a valid phone number")</script>';
-            return;
-        }
-        else if(!validate_email($email)){
-            echo "Please enter a valid email id";
-            return;
-        }
-        else if($pass!==$pass2){
-            echo "Passwords don't match";
-            return;
-
-        }
-        else{
-        $res=mysqli_query($conn,"insert into donor values('$contact','$name','$lname','$age','$gender','$bloodgroup','$donates','$problem','$donatedvalue','$problemdesc','$address','$city','$state','$email','$pass','$dob')");
-        if($res){
-            echo "successfully inserted";
-        }
-        else{
-            echo "error";
-        }
-    }
-    }*/
-    
-        ?>  
-
     </body>
 </html>
