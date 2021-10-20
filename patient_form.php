@@ -1,4 +1,9 @@
+<?php
+session_start();
+ $otp=rand(11111,99999);
+ $_SESSION['otp']=$otp;
 
+?>
 <html>
 	<head>
 		<title>Patient Form</title>
@@ -35,14 +40,22 @@
         <input type="text" id="age" name="age"></input><br><br>
         <label>Blood Group:</label>
         <select  name = "bloodGroup">
-            <option value="A+">A+</option>
-            <option value="A-">A-</option>
-            <option value="B+">B+</option>
-            <option value="B-">B-</option>
-            <option value="AB+">AB+</option>
-            <option value="AB-">AB-</option>
-            <option value="O+">O+</option>
-            <option value="O-">O-</option>
+        <option value="A +ve">A +ve</option>
+                    <option value="A-">A -ve</option>
+                    <option value="B+">B +ve</option>
+                    <option value="B-">B -ve</option>
+                    <option value="AB+">AB +ve</option>
+                    <option value="AB-">AB -ve</option>
+                    <option value="A1+">A1 +ve</option>
+                    <option value="A1-">A1 -ve</option>
+                    <option value="A2+">A2 +ve</option>
+                    <option value="A2-">A2 -ve</option>
+                    <option value="A1B+">A1B +ve</option>
+                    <option value="A1B-">A1B -ve</option>
+                    <option value="A2B+">A2B +ve</option>
+                    <option value="A2B-">A2B -ve</option>
+                    <option value="O+">O +ve</option>
+                    <option value="O-">O -ve</option>
         </select>
         <br><br>
         <label>Address: </label>
@@ -67,7 +80,7 @@
         <label>Confirm password: </label>
         <input type="password" id="conf_pass" placeholder="*" name = "cpass"><br><br>
 
-        <input type="submit" name="submit_form" value="submit">
+        <input type="submit" name="submit_form" value="Send OTP" onclick="JavaScript: return validator()">
         </form>     
         <?php
     if(isset($_POST['submit_form'])){
@@ -87,6 +100,7 @@
         $pass = $_POST['pass'];
         $cpass = $_POST['cpass'];
         $age = $_POST['age'];//date_diff(date_create($dob), date_create('now'))->y;
+        $formType = "patient";
         echo $dob;
         function validate_mobile($mobile)
         {
@@ -108,7 +122,8 @@
             return;
         }
         else{
-            $res=mysqli_query($conn, "insert into patient values('$firstName', '$lastName', '$age', '$gender', '$dob', '$bloodGroup', '$address', '$city', '$state', '$phone','$email','$pass')");
+            $res=mysqli_query($conn, "insert into patient(fname,lname,age,gender,dob,bloodGroup,address,city,state,contact,email,password) values('$firstName', '$lastName', '$age', '$gender', '$dob', '$bloodGroup', '$address', '$city', '$state', '$phone','$email','$pass')");
+            $res2=mysqli_query($conn, "insert into login_details values('$email', '$pass', '$formType')");
             if($res){
                 echo "successfully inserted";
             }

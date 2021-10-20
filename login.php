@@ -38,10 +38,11 @@
         if(isset($_POST['submit'])){
         $email = $_POST['user'];
         $password = $_POST['pass'];
-        $query=mysqli_query($conn,"SELECT * FROM patient WHERE email = '$email' AND password = '$password'");
+        $query=mysqli_query($conn,"SELECT * FROM login_details WHERE email = '$email' AND password = '$password'");
         $num_rows=mysqli_num_rows($query);
         $row=mysqli_fetch_array($query);
         $_SESSION["id"]=$row['email'];
+        $_SESSION["form-type"] = $row['form-type'];
         if ($num_rows>0)
         {
         ?>
